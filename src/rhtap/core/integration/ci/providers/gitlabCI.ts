@@ -112,7 +112,8 @@ export class GitLabCI extends BaseCI {
         pipelines.map(pipeline => {
           console.log(`Pipeline ID: ${pipeline.id}, Source: ${pipeline.source}`);
         });
-        pipelines = pipelines.filter(pipeline => pipeline.source === 'push'); // This is a workaround for GitLabCI, When Open a PR or Merge Request, the pipeline source is "push"
+        const allowedSources = ['push', 'merge_request_event'];
+        pipelines = pipelines.filter(pipeline => allowedSources.includes(pipeline.source));
 
         // Check if pipelines array is empty after filtering
         if (pipelines.length === 0) {
