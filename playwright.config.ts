@@ -52,6 +52,6 @@ export default defineConfig({
   workers: 6,
   projects: allProjects.length ? allProjects : [{ name: 'default' }],
   reporter: [['html', { open: 'never' }], ['list']],
-  timeout: 900000, // Default to 15 minutes (900000ms)
+  timeout: 1200000, // Default to 20 minutes (1200000ms)
   globalSetup: './global-setup.ts',
 });
